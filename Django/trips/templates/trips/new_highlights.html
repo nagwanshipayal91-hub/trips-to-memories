@@ -1,0 +1,16 @@
+
+    {% extends 'trips/base.html' %}
+
+    {% block content %}
+
+    <p><a href="{% url 'trips:city_highlights' city_name.id %}">{{city_name}}</a></p>
+
+    <p> Add a new highlights: </p>
+
+    <form action="{% url 'trips:new_highlights' city_name.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">add highlights</button>
+    </form>
+
+    {% endblock content %}

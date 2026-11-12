@@ -1,0 +1,26 @@
+
+    {% extends "trips/base.html" %}
+
+    {% block header %}
+    <h1>Trips</h1>
+    {% endblock header %}
+
+    {% block content %}
+
+    <p>cities</p>
+
+    <ul>
+        {% for city in all_cities %}
+        <li>
+            <h3>
+               <a href="{% url 'trips:city_highlights' city.id %}">{{city}}</a> 
+            </h3>
+            
+        </li>
+        {% empty %}
+            <li> No trip are added. </li>
+        {% endfor %}
+    </ul>
+    <h3><a href="{% url 'trips:new_trip' %}"> Add a new city: </a></h3>
+
+    {% endblock content %}

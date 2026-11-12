@@ -1,0 +1,25 @@
+{% extends "trips/base.html" %}
+
+{% load bootstrap3 %}
+
+{% block content %}
+<h2>
+    log in to your account.
+</h2>
+<form method="post" action="{%url 'users:login' %}" >
+
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <!-- {{ form.as_p}} -->
+        
+        {% buttons %}
+        <button name="submit">log in</button>
+        {% endbuttons %}
+
+        <input type="hidden" name="next" value="{% url 'trips:index' %}"/> 
+    </form>
+
+{% endblock content %}
+
+
+

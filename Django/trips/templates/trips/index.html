@@ -1,0 +1,19 @@
+
+    {% extends "trips/base.html" %}
+
+    {% block header %}
+    <div class="jumborton">
+        <h1> Turn your Trips into memories. </h1>
+    </div>
+    {% endblock header %}
+    {% block content %}
+    <h2>
+        <a href="{% url 'users:register' %}"> Register an account</a> to make your own memories, and list the cities you've been to.
+
+    </h2>
+    <h2> Whenever you go on any trip make small entry and turn it into your memories</h2>
+    <a href="{% url 'trips:home' %}"> Home </a>
+    <p>trips make your trips and your moments unforgatable while saving them for you. 
+        so you can relive them.</p>
+
+    {% endblock content %}

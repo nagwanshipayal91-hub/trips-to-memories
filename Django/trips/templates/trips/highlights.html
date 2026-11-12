@@ -1,0 +1,41 @@
+{% extends 'trips/base.html' %}
+
+{% block content %}
+
+<h2>{{ city }}</h2>
+
+<p>
+    <a href="{% url 'trips:new_highlights' city.id %}">
+        Add new highlight
+    </a>
+</p>
+
+{% for highlight in highlights %}
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+
+        {{ highlight.date_added|date:'M d, Y H:i' }}
+
+        <small>
+            <a href="{% url 'trips:edit_highlights' highlight.id %}">
+                edit highlight
+            </a>
+        </small>
+
+    </div>
+
+    <div class="panel-body">
+        {{ highlight.text|linebreaks }}
+    </div>
+
+</div>
+
+{% empty %}
+
+<p>No highlights have been added yet.</p>
+
+{% endfor %}
+
+{% endblock content %}
